@@ -9,5 +9,5 @@ int main()
 const int n=10;
 int b=222;
 int c=333;
-inc d=3444;
+int d=3444;
 }
