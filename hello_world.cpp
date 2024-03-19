@@ -8,4 +8,5 @@ int main()
 {
 const int n=10;
 int b=222;
+int c=333;
 }
