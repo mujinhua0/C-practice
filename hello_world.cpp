@@ -14,12 +14,15 @@ void practice_if();//if语句练习,三目运算符
 void practice_switch();//switch语句练习
 void practice_while1();//while语句练习，猜数字
 void practice_for();//for语句练习
-
+void practice_array1();//一维数组练习
+void practice_array2();//二维数组练习
+int practice_function1(int,int);//函数练习
 
 //================================================================================================
 int main()
 {
-practice_for();
+int a=practice_function1(1,2);
+std::cout<<a<<std::endl;
 }
 
 //===========数据类型联系================================================================================
@@ -189,5 +192,58 @@ void practice_for()//敲桌子
     
 }
 
+//==============数组练习====================================================================================
 
+void practice_array1()
+{
+    int arr[]={1,2,3,4,5,6,7};
+    std::cout<<"数组占用内存为："<<sizeof(arr)<<std::endl;
+    std::cout<<"元素占用内存为："<<sizeof(arr[1])<<std::endl;
+    std::cout<<"数组长度为："<<sizeof(arr)/sizeof(arr[1])<<std::endl;
+    std::cout<<"数组所在内存地址为："<<arr<<std::endl;
+    std::cout<<"数组所在内存地址为："<<&arr<<std::endl;
 
+    //冒泡排序
+    int arr1[]={3,5,6,2,44,32,42,53,54,543,3,4,56,43};
+    int arr1_end=sizeof(arr1)/sizeof(arr1[0])-1;
+    int arr1_start=0;
+    int b;
+    for (int i=0;i<=arr1_end;i++)
+    {
+        for (int j=0;j<arr1_end-i;j++)
+        {
+            if (arr1[j]>=arr1[j+1])
+            {
+                b=arr1[j];
+                arr1[j]=arr1[j+1];
+                arr1[j+1]=b;
+            }
+        }
+    }
+    for (int i=0;i<=arr1_end;i++)
+    {
+        std::cout<<arr1[i]<<std::endl;
+    }
+}
+
+void practice_array2()
+{  
+    int arr[3][3]={{1,2,3},{4,5,6},{7,8,9}};
+    int row=sizeof(arr)/sizeof(arr[0]);
+    int col=sizeof(arr[0])/sizeof(arr[0][0]);
+    //统计成绩
+    for (int i=0; i<col;i++)
+    {
+        int sum=0;
+        for (int j=0;j<row;j++)
+        {
+            sum=sum+arr[i][j];
+        }
+        std::cout<<"第"<<i+1<<"个学生成绩为："<<sum<<std::endl;
+    }
+}
+
+int practice_function1(int num1,int num2)
+{
+    return num1+num2;
+}
