@@ -9,7 +9,10 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${workspaceFolder}\\code_exe\\${fileBasenameNoExtension}.exe",
+                "-I","D:\\c++\\c++project1\\include\\",
+                "D:\\c++\\c++project1\\execute\\sum.cpp"
+
             ],
             "options": {
                 "cwd": "${fileDirname}"

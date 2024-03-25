@@ -6,7 +6,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <cmath>
-#include <sum.h>
+#include "sum.h"  //引入自定义头文件
 
 #define mouth 30 //定义常量
 void practice_dataType();//数据类型练习
@@ -18,15 +18,15 @@ void practice_for();//for语句练习
 void practice_array1();//一维数组练习
 void practice_array2();//二维数组练习
 int practice_function1(int,int);//函数练习
+void practice_pointer1();
 
 //================================================================================================
 int main()
 {
-int a=practice_function1(1,2);
-std::cout<<a<<std::endl;
+practice_pointer1();
 }
 
-//===========数据类型联系================================================================================
+//===========数据类型练习================================================================================
 
 void practice_dataType()
 {
@@ -65,6 +65,12 @@ std::cout<<"j:"<<j<<std::endl;
 //布尔类型
 bool k=true;
 std::cout<<"k:"<<k<<std::endl;
+
+//指针
+int * p;
+p=&b;
+
+
 }
 
 //========运算符练习=====================================================================================
@@ -251,4 +257,32 @@ void practice_array2()
 int practice_function1(int num1,int num2)
 {
     return num1+num2;
+}
+
+//=========指针练习======================================================
+void practice_pointer1()
+{
+  int a=10;
+  int *p=&a;
+  int b=20;
+  std::cout<<"a的地址为:"<<p<<std::endl;
+  std::cout<<"a的值为："<<*p<<std::endl;
+  std::cout<<"a占用内存为："<<sizeof(a)<<std::endl;
+  std::cout<<"指针占用内存为："<<sizeof(double *)<<std::endl;
+
+  //空指针,初始化指针，指向的内存不可修改，不可访问
+  int *p1=NULL;
+  
+  //常量指针,用const修饰指针，指针的指向可以变，指针所指的内容不可修改
+  const int *p2=&a;
+  p2=&b;
+  std::cout<<"p2指向为："<<p2<<std::endl;
+
+  //指针常量,指针的指向不可以变，但是指针所指的内容可以修改
+  int *const p3=&a;
+  *p3=20;
+  std::cout<<"a的值为："<<a<<std::endl;
+
+  //常量修饰指针,指针的指向和指针所指的内容都不可以修改
+  const int * const p4=&a;
 }
